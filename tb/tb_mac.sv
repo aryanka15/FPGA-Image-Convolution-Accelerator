@@ -71,7 +71,8 @@ module tb_mac(
         start_conv = 0; // De-assert start
         
         repeat (3) @(posedge clk); // Clocks 2 & 3: Wait for output
-    
+        if (output_pixel == 225) $display("PASSED");
+
         conv_data = large_vector;
         kernel = large_vector;
         @(posedge clk); 
@@ -82,7 +83,7 @@ module tb_mac(
         start_conv = 0;
         
         repeat (3) @(posedge clk); // Clocks 5 & 6: Wait for output
-        
+        if (output_pixel == 255) $display("PASSED");
         $finish; 
     end
     

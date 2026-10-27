@@ -144,7 +144,7 @@ module tb_top;
         count_pixels = 0; 
         kernel = kernel_laplacian; 
         // Open output file
-        outfile = $fopen("C:\\Users\\karan\\Documents\\GitHub\\ImageProcessor\\output\\clown_new.txt","w");
+        outfile = $fopen("output/clown_new.txt","w");
         if (outfile == 0) begin
             $display("ERROR: Cannot open output file");
             $finish;
@@ -159,7 +159,7 @@ module tb_top;
         @(posedge clk); #3;
    
         // Load image
-        read_image_file("C:\\Users\\karan\\Documents\\GitHub\\ImageProcessor\\test_scripts\\clown.txt "); // replace with your path
+        read_image_file("test_scripts/clown.txt"); // replace with your path
         
         // Load kernel
         @(posedge clk); #3;

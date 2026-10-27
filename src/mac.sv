@@ -43,7 +43,11 @@ module mac(
     
     always_ff @(posedge clk) begin: kernel_array_ff
         if (~n_rst) begin
-            kernel_array <= '{default: 0};
+          for (int i = 0; i < 3; i++) begin
+            for (int j = 0; j < 3; j++) begin
+                kernel_array[i][j] <= 8'd0;
+            end
+          end
         end
         else begin
             kernel_array[0][0] <= kernel[71:64];
@@ -60,7 +64,11 @@ module mac(
     
     always_ff @(posedge clk) begin: pixel_array_ff
         if (~n_rst) begin
-            pixel_array <= '{default: 0}; 
+          for (int i = 0; i < 3; i++) begin
+            for (int j = 0; j < 3; j++) begin
+              pixel_array[i][j] <= '0;
+            end
+          end
         end
         else begin
             pixel_array[0][0] <= conv_data[71:64];
